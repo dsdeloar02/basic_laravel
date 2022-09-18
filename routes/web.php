@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MyController;
 use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\DocumentsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,6 +49,8 @@ Route::get('/category/create', [CategoriesController::class, 'create'])->name('c
 Route::post('/category/store', [CategoriesController::class, 'store'])->name('categories.store');
 
 
-
+Route::resource('documents', DocumentsController::class)->only([
+    'create', 'store'
+]);
 
 // Route::get('/show/{id?}', [MyController::class, 'show']);
